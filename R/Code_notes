@@ -1,0 +1,21 @@
+#After setting Git, close and reopen .Rproj
+#Load devtools
+library(devtools)
+use_git() #Pay attention to which option is a yes
+
+height <- rnorm(100,20,10)
+sum((height - mean(height))^2)
+
+sum_squares <- function(v) {
+  sum((v - mean(v))^2)
+}
+
+sum_squares(height)
+
+use_r("sum_squares") #saves the function
+rm(sum_squares) #Remove from global env
+load_all()
+
+sum_squares(rnorm(20))
+
+
